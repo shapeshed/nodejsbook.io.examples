@@ -8,7 +8,7 @@
 * This reads the package.json file and installs any specified dependencies
 */
 
-var _ = require('underscore')
+var _ = require('underscore');
 _.each([1, 2, 3], function(num){ 
-	console.log("underscore.js says " + num)
+  console.log("underscore.js says " + num)
 });
