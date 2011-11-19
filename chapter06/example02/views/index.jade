@@ -1,0 +1,83 @@
+h1 Defining structure with Jade
+
+section#wrapper 
+  h2 Basic Structure
+  div
+    p
+      span This is a span within a p within a div!
+  hr
+
+  p Before
+  pre
+    code 
+      \div
+        \p
+         \span This is a span within a p within a div!
+  :markdown
+    After
+
+        <div>
+          <p>
+            <span>This is a span within a p within a div!</span>
+          </p>
+        </div>
+
+  h2 Adding ids to tags
+  section#foo This section has an id of 'foo'
+  hr
+
+  p Before
+  pre
+    code \section#foo
+  :markdown
+    After
+
+        <section id="foo"></section>
+
+  h2 Adding classes to tags
+  section.bar This section has an class name of 'bar'
+  hr
+
+  p Before
+  pre
+    code \section.bar
+  :markdown
+    After
+
+        <section class="bar"></section>
+
+  h2 Specifying multiple classes
+  section.one.two.three.four This section has class names of 'one', 'two', 'three', 'four'
+  hr
+
+  p Before
+  pre
+    code \section.one.two.three.four
+  :markdown
+    After
+
+        <section class="one two three four"></section>
+
+  h2 Specifying a class and an id
+  section#foo.bar This section has an id of 'foo' and a class name of 'bar'
+  hr
+
+  p Before
+  pre
+    code \section#foo.bar
+  :markdown
+    After
+
+        <section id="foo" class="bar"></section>
+
+  h2 Specifying multiple classes and an id
+  section#foo.one.two.three.four This section has an id of 'foo' and a class names of 'one', two', 'three', 'four'
+  hr
+
+  p Before
+  pre
+    code \section#foo.one.two.three.four
+  :markdown
+    After
+
+        <section id="foo" class="one two three four"></section>
