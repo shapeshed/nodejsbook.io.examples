@@ -1,4 +1,4 @@
-# C02E01
+# Installing dependencies with npm
 
 This example illustrates using npm to install dependencies
 
