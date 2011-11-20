@@ -1,4 +1,4 @@
-# C06E02
+# Page structure with Jade
 
 This example illustrates how to build structure using the [Jade][1] templating language.
 
