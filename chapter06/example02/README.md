@@ -1,4 +1,4 @@
-# Chapter06 Example02
+# C06E02
 
 This example illustrates how to build structure using the [Jade][1] templating language.
 
