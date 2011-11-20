@@ -1,8 +1,3 @@
-/*
-* In this example we use the writeHead function to send a 301
-* response code and send a Location header
-* This acts as a redirect to the most awesome site on the Internet
-*/
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(301, {

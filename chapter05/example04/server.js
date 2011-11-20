@@ -1,9 +1,3 @@
-/*
-* In this example you start to create a more complex server. The script examines the
-* pathname of the http request to respond with different content. A switch statement 
-* determines what the response should be. If no response can be found for the 
-* pathname we serve a 404 response
-*/
 var http = require('http')
   , url = require('url');
 

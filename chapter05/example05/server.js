@@ -1,7 +1,3 @@
-/*
-* In this example you create an HTTP client to check whether a website is up. 
-* The script checks that the response code is 200
-*/
 var http = require('http');
 
 var options = {

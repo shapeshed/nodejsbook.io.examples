@@ -1,7 +1,3 @@
-/*
-* In this example the simple check on whether a website is up
-* becomes a service to ping a website every 5 seconds. 
-*/
 var http = require('http');
 
 var options = {

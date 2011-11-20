@@ -1,7 +1,3 @@
-/*
-* In this example we use the writeHead function to send a HTTP response code
-* and set the Content-Type header as plain text. 
-*/
 var http = require('http');
 http.createServer(function (req, res) {
   console.log(req)
