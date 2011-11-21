@@ -2,25 +2,25 @@ h1 Defining structure with Jade
 
 section#wrapper 
   h2 Basic Structure
-  div
+  section
     p
-      span This is a span within a p within a div!
+      span This is a span within a p within a section!
   hr
 
   p Before
   pre
     code 
-      \div
+      \section
         \p
-         \span This is a span within a p within a div!
+         \span This is a span within a p within a section!
   :markdown
     After
 
-        <div>
+        <section>
           <p>
-            <span>This is a span within a p within a div!</span>
+            <span>This is a span within a p within a section!</span>
           </p>
-        </div>
+        </section>
 
   h2 Adding ids to tags
   section#foo This section has an id of 'foo'
