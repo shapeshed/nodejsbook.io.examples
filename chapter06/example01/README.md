@@ -12,7 +12,7 @@ Install Express globally via [npm][2]
 
 Express can generate a site structure for you
 
-    express express\_example
+    express express_example
 
 ## Install dependencies
 
