@@ -8,10 +8,10 @@ var options = {
 
 http.get(options, function(res) {
   if (res.statusCode  == 200) {
-	console.log("The site is up!");
+    console.log("The site is up!");
   }
   else {
-	console.log("The site is down!");
+    console.log("The site is down!");
   }
 }).on('error', function(e) {
   console.log("There was an error: " + e.message);
