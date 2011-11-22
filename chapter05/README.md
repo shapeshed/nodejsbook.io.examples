@@ -9,5 +9,5 @@ Chapter 5 explores The [HTTP module][1] in node.js.
 5. An HTTP client with node.js
 6. Daemonising the HTTP client
 
-[1] http://nodejs.org/docs/latest/api/http.html
+[1]: http://nodejs.org/docs/latest/api/http.html
 
