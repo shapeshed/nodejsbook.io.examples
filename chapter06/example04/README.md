@@ -1,6 +1,6 @@
 # Loops in Jade
 
-This example illustrates how to use a variablewin the [Jade][1] templating language.
+This example illustrates how to use loops with the [Jade][1] templating language.
 
     - beatles = ['John', 'Paul', 'Ringo', 'George']
     ul
