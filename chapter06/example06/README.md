@@ -5,7 +5,7 @@ This example illustrates how to use inline JavaScript with the [Jade][1] templat
     script
       alert('Inline Javascript in Jade')
 
-Generate a JavaScript alert.
+This generates a JavaScript alert.
 
 To run the example first install modules with npm
 
