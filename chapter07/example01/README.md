@@ -12,7 +12,7 @@ Then start the server with
 
 Then open your browser at [http://127.0.0.1:3000][1]
 
-You will see a basic Express site. Then browse to [http://127.0.0.1:3000/about][2]. Along with 404 head you will see
+You will see a basic Express site. Then browse to [http://127.0.0.1:3000/about][2]. Along with 404 header you will see
 
     Cannot GET /about
 
