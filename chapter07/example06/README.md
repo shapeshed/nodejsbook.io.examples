@@ -1,4 +1,4 @@
-# Suggested solutions to Quiz question 3
+# Suggested solution to Quiz question 3
 
 This is a simple solution to Quiz question 3 showing how to show different data based on parameter. It is not suggested that you use this code for production use!
 
