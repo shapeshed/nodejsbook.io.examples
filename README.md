@@ -4,8 +4,9 @@ This repository is a series of examples to support the Sam's Teach Yourself Node
 
 If you find any inconsistencies or code that doesn't run as expected please open an issue.
 
-* Chapter 1 - Introducing Node.js
-* Chapter 2 - npm - Node Package Manager
-* Chapter 5 - HTTP
-* Chapter 6 - Introducing Express
+1. Introduction Node.js
+2. npm - Node Package Manager
+5. HTTP
+6. Introducing Express
+7. More on Express
 
