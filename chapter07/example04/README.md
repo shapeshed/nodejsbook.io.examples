@@ -14,7 +14,7 @@ Then start the server with
 
 Then open your browser at [http://127.0.0.1:3000][1].  You will see a basic Express site.
 
-Browser to [http://127.0.0.1:3000/12][2]. You should see 
+Browser to [http://127.0.0.1:3000/users/12][2]. You should see 
 
     show content for user id 12
 
