@@ -2,18 +2,15 @@
 
 This example illustrates how to add a route that responds to a GET request for /about
 
-To the default routes/index.js file add
+Installed the required dependencies with
 
-    /*
-     * GET about page.
-     */
-    exports.about = function(req, res){
-      res.send('Hello from the about route!');
-    };
+    npm install
 
-Then we add a declaration to the `app.js` file to respond to GET requests to /about
+Edit the `app.js` file to respond to GET requests to /about
 
-    app.get('/about', routes.about);
+    app.get('/about', function(req, res){
+        res.send('Hello from the about route!');
+    });
 
 Then start the server with
 
