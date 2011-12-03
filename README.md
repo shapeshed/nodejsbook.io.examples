@@ -11,4 +11,5 @@ If you find any inconsistencies or code that doesn't run as expected please open
 5. HTTP
 6. Introducing Express
 7. More on Express
+8. Persisting data
 
