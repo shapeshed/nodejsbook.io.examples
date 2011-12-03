@@ -1,4 +1,4 @@
-# Reading from Environment Variables
+# Reading Environment Variables
 
 Node.js can read from Environment Variables. These can be useful for storing bits of data like connection strings and usernames.
 
