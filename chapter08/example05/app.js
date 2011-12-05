@@ -15,6 +15,8 @@ var Task = new Schema({
   task: String
 });
 
+var Task = mongoose.model('Task', Task);
+
 var app = module.exports = express.createServer();
 
 // Configuration
