@@ -101,7 +101,7 @@ app.put('/tasks/:id', function(req, res){
 });
 
 app.del('/tasks/:id', function(req, res){
-  Task.findOne({ _id: req.params.id }, function(err, doc) {
+  Task.findById(req.params.id, function (err, doc){
     if (!doc) return next(new NotFound('Document not found'));
     doc.remove(function() {
       req.flash('info', 'Task deleted');

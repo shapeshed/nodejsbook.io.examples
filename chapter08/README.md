@@ -10,6 +10,7 @@ Chapter 8 shows how to persist data in Node.js applications.
 6. Creating the index view
 7. Creating the new view and handling a POST request
 8. Creating the edit view and handling a PUT request
+8. Creating the delete route and handling a DELETE request
 9. Adding Flash messages
 10. Adding validation
 
