@@ -15,6 +15,8 @@ var Task = new Schema({
   task: String
 });
 
+var Task = mongoose.model('Task', Task);
+
 var app = module.exports = express.createServer();
 
 // Configuration
@@ -41,9 +43,11 @@ app.configure('production', function(){
 app.get('/', routes.index);
 
 app.get('/tasks', function(req, res){
-  res.render('tasks/index', { 
-    title: 'Tasks Index View',
-    docs: docs
+  Task.find({}, function (err, docs) {
+    res.render('tasks/index', { 
+      title: 'Todos index view',
+      docs: docs
+    });
   });
 });
 
