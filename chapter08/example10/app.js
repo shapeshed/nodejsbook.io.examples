@@ -90,7 +90,6 @@ app.get('/tasks/:id/edit', function(req, res){
 
 app.put('/tasks/:id', function(req, res){
   Task.findById(req.params.id, function (err, doc){
-    doc.updated_at = new Date();
     doc.task = req.body.task.task;
     doc.save(function(err) {
       if (!err){
@@ -98,7 +97,8 @@ app.put('/tasks/:id', function(req, res){
         res.redirect('/tasks');
       }
       else {
-        // error handling
+        req.flash('warning', err);
+        res.redirect('/tasks/' + req.params.id + '/edit');
       }
     });
   });
