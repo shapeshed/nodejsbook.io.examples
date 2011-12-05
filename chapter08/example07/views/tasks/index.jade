@@ -1,0 +1,11 @@
+h1 Your tasks
+
+- if(docs.length)
+  table
+    tr
+      th Task
+        each task in docs
+          tr
+            td #{task.task}
+- else
+  p You don't have any tasks! 
