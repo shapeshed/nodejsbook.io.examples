@@ -1,0 +1,18 @@
+h1 Edit task view
+
+-if(typeof flash != 'undefined')
+  include ../mixins/flash-messages
+  mixin flash-messages(flash)
+
+form(method='post', action='/tasks/' + task.id)
+  input(name='_method', value='PUT', type='hidden')
+  fieldset
+    legend Editing task
+      div.clearfix
+        label Task
+        div.input
+          input(name='task[task]', class='xlarge', value="#{task.task}")
+      div.actions
+        input(type='submit', value='Save', class='btn primary')
+          button(type='reset', class='btn') Cancel
+
