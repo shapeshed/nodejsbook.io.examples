@@ -11,8 +11,12 @@ mongoose.connect('mongodb://localhost/todo_development')
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
+function validatePresenceOf(value) {
+  return value && value.length;
+}
+
 var Task = new Schema({
-  task: String
+  task : { type: String, validate: [validatePresenceOf, 'a task is required'] }
 });
 
 var Task = mongoose.model('Task', Task);
@@ -86,7 +90,6 @@ app.get('/tasks/:id/edit', function(req, res){
 
 app.put('/tasks/:id', function(req, res){
   Task.findById(req.params.id, function (err, doc){
-    doc.updated_at = new Date();
     doc.task = req.body.task.task;
     doc.save(function(err) {
       if (!err){
@@ -94,7 +97,8 @@ app.put('/tasks/:id', function(req, res){
         res.redirect('/tasks');
       }
       else {
-        // error handling
+        req.flash('warning', err);
+        res.redirect('/tasks/' + req.params.id + '/edit');
       }
     });
   });

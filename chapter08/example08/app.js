@@ -93,5 +93,14 @@ app.put('/tasks/:id', function(req, res){
   });
 });
 
+app.del('/tasks/:id', function(req, res){
+  Task.findOne({ _id: req.params.id }, function(err, doc) {
+    if (!doc) return next(new NotFound('Document not found'));
+    doc.remove(function() {
+      res.redirect('/tasks');
+    });
+  });
+});
+
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
