@@ -2,12 +2,5 @@
 html
   head
     title= title
-    link(rel='stylesheet', href='http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
-    script(src='http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js')
-    script
-      $(".alert-message").alert()
-
-  body
-    section.container!= body
-
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body!= body
