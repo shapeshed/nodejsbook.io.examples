@@ -14,8 +14,7 @@ var request = http.get(options, function(res){
   res.on('end', function(){
     json = JSON.parse(data);
     console.log('Name: ' + json.name);
-    console.log('Occupation: ' + json.occupation);
-    console.log('Home: ' + json.home);
+    console.log('Occupation: ' + json.surname);
   });
   res.on('error', function(e){
     console.log("There was an error: " + e.message);
