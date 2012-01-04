@@ -1,24 +1,10 @@
-var http = require('http')
-  , data = "";
-
-var options = {
-  host: '127.0.0.1',
-  port: 3000,
-  path: '/'
-};
-
-var request = http.get(options, function(res){
-  res.on('data', function(chunk){
-    data += chunk
-  });
-  res.on('end', function(){
-    json = JSON.parse(data);
-    console.log('Name: ' + json.name);
-    console.log('Occupation: ' + json.occupation);
-    console.log('Home: ' + json.home);
-  });
-  res.on('error', function(e){
-    console.log("There was an error: " + e.message);
-  });
-})
-
+var http = require('http');
+var obj = {
+  name : "Officer",
+  surname: "Dibble"
+}
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(JSON.stringify(obj));
+}).listen(3000, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:3000/');
