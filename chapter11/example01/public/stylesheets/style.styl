@@ -1,0 +1,116 @@
+@import "mixins/css3"
+
+/* Reset
+Based on http://meyerweb.com/eric/thoughts/2008/01/15/resetting-again/
+Removed elements not supported in HTML5
+-----------------------------------------------------------------------------*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strike, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td 
+  margin 0
+  padding 0
+  border 0
+  outline 0
+  font-size 100%
+  vertical-align baseline
+  
+/* 
+Trigger the new block level elements in to the correct content flow
+-----------------------------------------------------------------------------*/
+article, aside, dialog, figure, 
+footer, header, hgroup, menu, 
+nav, section  
+  display block 
+      
+
+/* Set up document
+-----------------------------------------------------------------------------*/
+body
+  font 62.5%/1.5  Helvetica, Arial, "Lucida Grande", "Lucida Sans", Tahoma, Verdana, sans-serif
+  text-align center
+  background #000
+
+#wrapper
+  width 920px
+  text-align left 
+  margin-left auto 
+  margin-right auto
+  background #fff
+  padding 20px
+  border-bottom-radius(15px)
+
+/* Typography
+-----------------------------------------------------------------------------*/
+@import "partials/typography"
+
+/* CSS Tables
+-----------------------------------------------------------------------------*/
+.css-table
+  width 100%
+  display table
+  .two-column
+    display table-row
+    .cell
+      display table-cell
+      vertical-align top
+      width 50%
+      *
+        width 90%
+  .three-column
+    display table-row
+    .cell
+      display table-cell
+      width 33.33333%
+      *
+        width 90%
+  .four-column
+    display table-row
+    .cell
+      display table-cell
+      width 25%
+
+/* Header
+-----------------------------------------------------------------------------*/
+header
+  background #F00060
+  nav 
+    width 960px
+    text-align right
+    margin-left auto 
+    margin-right auto
+    ul 
+      list-style none
+      padding 10px
+      margin-bottom 0
+      li 
+        display inline
+        margin-left 1%
+        a 
+          background #fc9200 
+          border-radius(15px)
+          display inline-block
+          padding 5px 15px 6px 
+          color #fff
+          text-decoration none
+          position relative
+          cursor pointer
+          &:hover
+            background-color #db0d5f 
+
+/* Footer
+-----------------------------------------------------------------------------*/
+footer
+  color #666
+  border-top 1px solid #ccc
+  padding-top 1.5em
+  ul 
+    list-style none
+
+
+
