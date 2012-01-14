@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Socket.io Example</title>
+  </head>
+  <body>
+    <h1>Socket.io Example</h1>
+    <h2>How many users are here?</h2>
+    <p id="count"></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://127.0.0.1:3000');
+      socket.on('users', function (data) {
+        console.log('Got udpate from the server');
+        console.log('There are ' + data.number + ' users');
+        $('p#count').text(data.number);
+      });
+    </script>
+
+  </body>
+</html>
