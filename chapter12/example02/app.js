@@ -13,12 +13,12 @@ var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
   count++;
-  console.log('User connected. ' + count + ' users present.');
+  console.log('User connected. ' + count + ' user(s) present.');
   socket.emit('users', { number: count });
   socket.broadcast.emit('users', { number: count });
   socket.on('disconnect', function () {
     count--;
-    console.log('User disconnected. ' + count + ' users present.');
+    console.log('User disconnected. ' + count + ' user(s) present.');
     socket.broadcast.emit('users', { number: count });
   });
 });
