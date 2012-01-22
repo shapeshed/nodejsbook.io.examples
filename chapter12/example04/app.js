@@ -19,7 +19,7 @@ io.sockets.on('connection', function (socket) {
     console.log('Received PONG response. PONG!');
   });
   setInterval(function() {
-    console.log('Sending PING to clients..');
+    console.log('Sending PING to client..');
     socket.emit('ping', { text: 'PING' });
   }, 10000);
 });
