@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Socket.io Express Example</title>
+  </head>
+  <body>
+    <h1>Socket.io Express Example</h1>
+    <form id="set-nickname">
+      <label for="nickname">Nickname:</label>
+      <input type="text" name="nickname" id="nickname" />
+      <input type="submit" />
+    </form>
+    <section id="message-box">
+    <form id="send-message">
+      <textarea id="message"></textarea>
+      <input type="submit" />
+    </section>
+
+    <section id="nicknames"></section>
+    <section id="messages"></section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+      socket.on('nicknames', function (data) {
+        $('#nicknames').empty().append($('<ul>'));
+        for(var i=0; i<data.length; i++) {
+          $('#nicknames ul').append('<li>' + data[i] + '</li>');
+        }
+      });
+      socket.on('user message', function (data) {
+        $('#messages').append($('<p>').append($('<strong>').text(data.nick), data.message));
+      });
+      socket.on('announcement', function (data) {
+        $('#messages').append($('<p>').append($('<em>').text(data.message)));
+      });
+      $(function () {
+        $('#set-nickname').submit(function() {
+          socket.emit('nickname', $('#nickname').val(), function (data) {
+            if (!data) {
+              $('#set-nickname').hide();
+            } else {
+              $('#set-nickname')
+              .prepend($('<p>')
+              .text('Sorry - that nickname is already taken.'));
+            }
+          });
+          return false;
+        });
+        $('#send-message').submit(function () {
+          socket.emit('user message', $('#message').val());
+          $('#message').val('').focus();
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
