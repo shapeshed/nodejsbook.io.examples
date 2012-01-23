@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Socket.io Express Example</title>
+  </head>
+  <body>
+    <h1>Socket.io Express Example</h1>
+    <form id="set-nickname">
+      <label for="nickname">Nickname:</label>
+      <input type="text" name="nickname" id="nickname" />
+      <input type="submit" />
+    </form>
+    <section id="nicknames"></section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+      socket.on('nicknames', function (data) {
+        $('#nicknames').empty().append($('<ul>'));
+        for(var i=0; i<data.length; i++) {
+          $('#nicknames ul').append('<li>' + data[i] + '</li>');
+        }
+      });
+      $(function () {
+        $('#set-nickname').submit(function() {
+          socket.emit('nickname', $('#nickname').val(), function (data) {
+            if (!data) {
+              console.log('Nickname set successfully');
+              $('#set-nickname').hide();
+            } else {
+              $('#set-nickname')
+              .prepend($('<p>')
+              .text('Sorry - that nickname is already taken.'));
+            }
+          });
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
