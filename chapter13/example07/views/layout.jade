@@ -1,0 +1,71 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700,500,600')    
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script
+      var socket = io.connect();
+      socket.on('nicknames', function (data) {
+        $('#right-column').empty().append($('<ul>'));
+        for(var i=0; i<data.length; i++) {
+          $('#right-column ul').append('<li>' + data[i] + '</li>');
+        }
+      });
+      socket.on('announcement', function (data) {
+       $('#chat-box').append($('<p>').append($('<em>').text(data.message)));
+      });
+      socket.on('user message', function (data) {
+        $('#chat-box').append($('<p>').append($('<strong>').text(data.nick), data.message));
+      });
+      $(function () {
+        /*
+        * Set the nickname for a user
+        * A callback is received from the server. If it is true then the name 
+        * already taken. 
+        */
+        $('#set-nickname').submit(function() {
+          socket.emit('nickname', $('#nickname').val(), function (data) {
+            if (!data) {
+              $('#login').hide();
+              $('#wrapper').show();
+            } else {
+              $('#set-nickname')
+                .prepend($('<p>')
+                .append($('<strong>')
+                .text('name already taken')));
+            }
+          });
+          return false;
+        });
+
+        /*
+        * Sends a message to the server
+        */
+        $('#send-message').submit(function () {
+          socket.emit('user message', $('#message').val());
+          $('#message').val('').focus();
+          return false;
+        });
+      });
+
+  body!= body
+    h1.logo G.O. CHAT
+    div.stalk
+    section#login
+      form#set-nickname
+        label nickname:
+        input#nickname(type='text')
+        input#thats-me(type='submit')(value='thats me!')
+    section#wrapper
+      section#left-column 
+        section#chat-box 
+        section#message-box 
+          form#send-message
+            textarea#message
+            input#speak(type='submit')(value='SPEAK!')
+      section#right-column 
+
+

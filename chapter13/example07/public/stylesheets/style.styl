@@ -1,0 +1,141 @@
+@import 'reset'
+html 
+  font-family 'Terminal Dosis', sans-serif
+  font-weight 500
+  letter-spacing 0.1em
+html, body
+  height 100%
+p 
+  font-size 1.6em
+  line-height 1.8em
+ul
+  font-size 1.6em
+  line-height 1.8em
+.logo
+  float left
+  font-size 2.25em
+  font-family 'Terminal Dosis', sans-serif
+  font-weight 700
+  color #fff
+  text-shadow -0.08em -0.08em 0 #bc0066
+  margin 1em 0.5em 1em 1em
+  padding 0.35em 0.4em
+  background-color #eb0080
+  border none
+  border-radius 10px
+  box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066, 0.15em 0.15em 0 #bc0066, 0.2em 0.2em 0 #bc0066
+.stalk
+  background-image url(images/stalk.png) 
+  position absolute
+  height 29px
+  width 20px
+  top 5.7em
+  left 3em
+section#login
+  float left
+label
+  position relative
+  top 0.25em
+  display inline
+  margin-right 0.2em
+  font-size 2em
+  color #ccc
+input#nickname
+  outline none
+  color #fff
+  font-size 2.25em
+  font-family 'Terminal Dosis', sans-serif
+  font-weight 400
+  margin 1em 0
+  width 6em
+  text-shadow -0.08em -0.08em 0 #bc0066
+  padding 0.2em 0.4em
+  background-color #eb0080
+  border none
+  border-radius 10px
+  box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066, 0.15em 0.15em 0 #bc0066, 0.2em 0.2em 0 #bc0066
+input#thats-me
+  position relative
+  font-size 2.25em
+  font-family 'Terminal Dosis', sans-serif
+  font-weight 400
+  color white
+  text-shadow -0.08em -0.08em 0 #bc0066
+  margin 1em 0.5em
+  padding 0.2em 0.4em
+  background-color #eb0080
+  border none
+  border-radius 10px
+  box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066, 0.15em 0.15em 0 #bc0066, 0.2em 0.2em 0 #bc0066  
+  cursor pointer
+  &:hover
+    top -0.1em
+    left -0.1em
+    box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066, 0.15em 0.15em 0 #bc0066, 0.2em 0.2em 0 #bc0066, 0.25em 0.25em 0 #bc0066, 0.3em 0.3em 0 #bc0066
+    background url('/images/hatch-20.png') 
+  &:active
+    top 0.1em
+    left 0.1em
+    box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066
+section#wrapper
+  display none
+  width 100%
+  float left
+  section#left-column
+    float left
+    height 100%
+    width 80%
+    section#chat-box
+      padding 2%
+      width 96%
+      height 81%
+      float left
+      p
+        strong
+          margin-right 10px
+      p:nth-child(even) 
+        background #fafafa
+        
+    section#message-box
+      padding 2em 2% 2em
+      position fixed
+      bottom 0
+      border-top 0.2em dashed #eb0080
+      width 100%
+      textarea
+        float left
+        border 1px dotted #eb0080
+        outline none
+        width 80%
+        height 100%
+        font-size 1.6em
+      input#speak
+        letter-spacing 0.1em
+        float left
+        width 14%
+        font-size 2.5em
+        font-family 'Terminal Dosis', sans-serif
+        font-weight 700
+        color white
+        text-shadow -0.08em -0.08em 0 #bc0066
+        margin 0 2%
+        padding 0.2em 0.4em
+        background-color #eb0080
+        border none
+        border-radius 10px
+        box-shadow 0.05em 0.05em 0 #bc0066, 0.1em 0.1em 0 #bc0066, 0.15em 0.15em 0 #bc0066, 0.2em 0.2em 0 #bc0066  
+        cursor pointer
+        
+  section#right-column
+    background #eb0080
+    padding 2%
+    float left
+    width 16%
+    height 96%
+    color #fff
+    ul
+      li
+        background url('/images/avatar.png') center left no-repeat
+        list-style none
+        padding-left 40px
+
