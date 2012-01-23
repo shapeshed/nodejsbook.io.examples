@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Socket.io Express Example</title>
     <style type="text/css">
-        section#message-box { display: none; }
+        form#send-message { display: none; }
         textarea#message { width: 300px; height: 100px; }
         section#messages p strong { margin-right: 5px; }
         section#nicknames { width: 300px; float: right; }
@@ -18,11 +18,10 @@
       <input type="submit" />
     </form>
     <section id="nicknames"></section>
-    <section id="message-box">
     <form id="send-message">
       <textarea id="message"></textarea>
       <input type="submit" value="Send message!" />
-    </section>
+    </form>
     <section id="messages"></section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -45,7 +44,7 @@
           socket.emit('nickname', $('#nickname').val(), function (data) {
             if (!data) {
               $('#set-nickname').hide();
-              $('#message-box').show();
+              $('#send-message').show();
             } else {
               $('#set-nickname')
               .prepend($('<p>')
