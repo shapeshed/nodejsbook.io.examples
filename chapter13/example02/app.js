@@ -9,6 +9,6 @@ app.get('/', function (req, res) {
 
 io.sockets.on('connection', function (socket) {
   socket.on('nickname', function (data) {
-    console.log(data);
+    console.log('The server received the following nickname: ' + data);
   });
 });
