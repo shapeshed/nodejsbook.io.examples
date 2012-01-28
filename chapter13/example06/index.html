@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Socket.io Express Example</title>
+    <style type="text/css">
+        form#send-message { display: none; }
+        section#nicknames { width: 300px; float: right; }
+        textarea#message { width: 300px; height: 100px; }
+        section#messages p strong { margin-right: 5px; }
+    </style>
   </head>
   <body>
     <h1>Socket.io Express Example</h1>
@@ -11,13 +17,11 @@
       <input type="text" name="nickname" id="nickname" />
       <input type="submit" />
     </form>
-    <section id="message-box">
+    <section id="nicknames"></section>
     <form id="send-message">
       <textarea id="message"></textarea>
-      <input type="submit" />
-    </section>
-
-    <section id="nicknames"></section>
+      <input type="submit" value="Send message!" />
+    </form>
     <section id="messages"></section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -32,12 +36,15 @@
       socket.on('user message', function (data) {
         $('#messages').append($('<p>').append($('<strong>').text(data.nick), data.message));
       });
-
+      socket.on('announcement', function (data) {
+        $('#messages').append($('<p>').append($('<em>').text(data.message)));
+      });
       $(function () {
         $('#set-nickname').submit(function() {
           socket.emit('nickname', $('#nickname').val(), function (data) {
             if (!data) {
               $('#set-nickname').hide();
+              $('#send-message').show();
             } else {
               $('#set-nickname')
               .prepend($('<p>')

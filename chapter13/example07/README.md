@@ -1,13 +1,16 @@
-# Adding event logging 
+# Node.js Socket.io Chat Server
 
-This example demonstrates adding notices for when users connect and disconnect. 
+This is an example chat server created with Express and Socket.io.
 
-Install dependencies with 
+## Installation
 
-    npm install
+Clone the git repo then run
 
-Start the application with 
+    npm install 
+
+Start the server with
 
     node app.js
 
+Open a browser at http://127.0.0.1:3000/
 
