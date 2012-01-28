@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Daddy is there more love or hate in the world?</title>
+    <style type="text/css">
+      body { font: 100% Helvetica, Arial, sans-serif }
+      ul.percentage { width: 100%; float: left}
+      ul.percentage li { display: block; width: 0; padding: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; float: left; clear: left }
+      ul.percentage li.love { background: #ff0066; color: #fff}
+      ul.percentage li.hate { background: #000; color: #fff}
+      ul.percentage li span { float: right; display: block}
+      ul.tweets { float: left; clear: both}
+      #stream { float: left; clear: both; width: 100%}
+      #stream ul { list-style: none}
+      #stream ul li { float: left; clear: left; width: 100%; border-bottom: 1px solid #ccc;: 5px; padding: 5px 0}
+      #stream ul li:nth-child(even) { background: #f8f5f6; }
+      #stream ul li img { float: left; margin-right: 10px; padding: 5px}
+      #lovers { width: 45%; float: left }
+      #haters { width: 45%; float: right }
+    </style>
+  </head>
+  <body>
+    <h1>Daddy is there more love or hate in the world?</h1>
+    <ul class="percentage">
+      <li class="love">
+        Love
+        <span>0</span>
+      </li>
+      <li class="hate">
+        Hate
+        <span>0</span>
+      </li>
+    </ul>
+    <section id="stream">
+      <section id="lovers">
+        <h2>Some Lovers</h2>
+        <ul></ul>
+      </section>
+      <section id="haters">
+        <h2>Some Haters</h2>
+        <ul></ul>
+      </section>
+    </section>
+    <ul class="tweets"></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+      socket.on('percentages', function (data) {
+        $('li.love span').text(Math.round(data.love * 10) / 10 + '%');
+        $('li.hate span').text(Math.round(data.hate * 10) / 10 + '%');
+        $('li.love').css("width", data.love + '%');
+        $('li.hate').css("width", data.hate + '%');
+      });
+      socket.on('lover', function (data) {
+        $('<img />')
+          .attr('src', data.avatar)
+          .load(function(){
+            $('#lovers ul')
+            .prepend($('<li>')
+            .prepend($('<p>').text(data.user + ': ' + data.text))
+            .prepend($(this)));
+          });
+      });
+      socket.on('hater', function (data) {
+        $('<img />')
+          .attr('src', data.avatar)
+          .load(function(){
+            $('#haters ul')
+            .prepend($('<li>')
+            .prepend($('<p>').text(data.user + ': ' + data.text))
+            .prepend($(this)));
+          });
+      });
+    </script>
+  </body>
+</html>
