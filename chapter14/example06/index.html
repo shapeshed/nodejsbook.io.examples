@@ -47,9 +47,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect();
-      var tweetList = $('ul.tweets');
       var loveCounter = $('li.love');
       var hateCounter = $('li.hate');
+      var loversList = $('#lovers ul');
+      var hatersList = $('#haters ul');
       socket.on('percentages', function (data) {
         loveCounter
           .text(Math.round(data.love * 10) / 10 + '%')
@@ -62,7 +63,7 @@
         $('<img />')
           .attr('src', data.avatar)
           .load(function(){
-            $('#lovers ul')
+            loversList
             .prepend($('<li>')
             .prepend($('<p>').text(data.user + ': ' + data.text))
             .prepend($(this)));
@@ -72,7 +73,7 @@
         $('<img />')
           .attr('src', data.avatar)
           .load(function(){
-            $('#haters ul')
+            hatersList
             .prepend($('<li>')
             .prepend($('<p>').text(data.user + ': ' + data.text))
             .prepend($(this)));
