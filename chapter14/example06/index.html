@@ -46,41 +46,43 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect();
-      var loveCounter = $('li.love');
-      var hateCounter = $('li.hate');
-      var loveCounterPercentage = $('li.love span');
-      var hateCounterPercentage = $('li.hate span');
-      var loversList = $('#lovers ul');
-      var hatersList = $('#haters ul');
-      socket.on('percentages', function (data) {
-        loveCounter
-          .css("width", data.love + '%');
-        loveCounterPercentage
-          .text(Math.round(data.love * 10) / 10 + '%');
-        hateCounter
-          .css("width", data.hate + '%');
-        hateCounterPercentage
-          .text(Math.round(data.hate * 10) / 10 + '%');
-      });
-      socket.on('lover', function (data) {
-        $('<img />')
-          .attr('src', data.avatar)
-          .load(function(){
-            loversList
-            .prepend($('<li>')
-            .prepend($('<p>').text(data.user + ': ' + data.text))
-            .prepend($(this)));
-          });
-      });
-      socket.on('hater', function (data) {
-        $('<img />')
-          .attr('src', data.avatar)
-          .load(function(){
-            hatersList
-            .prepend($('<li>')
-            .prepend($('<p>').text(data.user + ': ' + data.text))
-            .prepend($(this)));
-          });
+      jQuery(function ($) { 
+        var loveCounter = $('li.love');
+        var hateCounter = $('li.hate');
+        var loveCounterPercentage = $('li.love span');
+        var hateCounterPercentage = $('li.hate span');
+        var loversList = $('#lovers ul');
+        var hatersList = $('#haters ul');
+        socket.on('percentages', function (data) {
+          loveCounter
+            .css("width", data.love + '%');
+          loveCounterPercentage
+            .text(Math.round(data.love * 10) / 10 + '%');
+          hateCounter
+            .css("width", data.hate + '%');
+          hateCounterPercentage
+            .text(Math.round(data.hate * 10) / 10 + '%');
+        });
+        socket.on('lover', function (data) {
+          $('<img />')
+            .attr('src', data.avatar)
+            .load(function(){
+              loversList
+                .prepend($('<li>')
+                .prepend($('<p>').text(data.user + ': ' + data.text))
+                .prepend($(this)));
+            });
+        });
+        socket.on('hater', function (data) {
+          $('<img />')
+            .attr('src', data.avatar)
+            .load(function(){
+              hatersList
+                .prepend($('<li>')
+                .prepend($('<p>').text(data.user + ': ' + data.text))
+                .prepend($(this)));
+            });
+        });
       });
     </script>
   </body>

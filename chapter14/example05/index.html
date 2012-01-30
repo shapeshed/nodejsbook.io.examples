@@ -25,18 +25,20 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect();
-      var tweetList = $('ul.tweets');
-      var loveCounter = $('li.love');
-      var hateCounter = $('li.hate');
-      socket.on('tweet', function (data) {
-        tweetList
-          .prepend('<li>' + data.user + ': ' + data.text + '</li>');
-        loveCounter
-          .text(Math.round(data.love * 10) / 10 + '%')
-          .css("width", data.love + '%');
-        hateCounter
-          .text(Math.round(data.hate * 10) / 10 + '%')
-          .css("width", data.hate + '%');
+      jQuery(function ($) { 
+        var tweetList = $('ul.tweets');
+        var loveCounter = $('li.love');
+        var hateCounter = $('li.hate');
+        socket.on('tweet', function (data) {
+          tweetList
+            .prepend('<li>' + data.user + ': ' + data.text + '</li>');
+          loveCounter
+            .text(Math.round(data.love * 10) / 10 + '%')
+            .css("width", data.love + '%');
+          hateCounter
+            .text(Math.round(data.hate * 10) / 10 + '%')
+            .css("width", data.hate + '%');
+        });
       });
     </script>
   </body>
