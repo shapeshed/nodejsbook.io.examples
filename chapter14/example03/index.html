@@ -10,9 +10,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+      var tweetList = $('ul.tweets');
       var socket = io.connect();
       socket.on('tweet', function (data) {
-        $('ul.tweets').prepend($('<li>').text(data.user + ': ' + data.text));
+        tweetList.prepend('<li>' + data.user + ': ' + data.text + '</li>');
       });
     </script>
   </body>
