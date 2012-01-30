@@ -6,6 +6,7 @@
     <style type="text/css">
       ul.percentage { width: 100% }
       ul.percentage li { display: block; width: 0 }
+      ul.percentage li span { float: right; display: block}
       ul.percentage li.love { background: #ff0066; color: #fff}
       ul.percentage li.hate { background: #000; color: #fff}
     </style>
@@ -14,10 +15,10 @@
     <h1>Socket.io Twitter Example</h1>
     <ul class="percentage">
       <li class="love">
-        <span>0</span>
+        Love <span>0</span>
       </li>
       <li class="hate">
-        <span>0</span>
+        Hate <span>0</span>
       </li>
     </ul>
     <ul class="tweets"></ul>
@@ -29,15 +30,19 @@
         var tweetList = $('ul.tweets');
         var loveCounter = $('li.love');
         var hateCounter = $('li.hate');
+        var loveCounterPercentage = $('li.love span');
+        var hateCounterPercentage = $('li.hate span');
         socket.on('tweet', function (data) {
+          loveCounter
+            .css("width", data.love + '%');
+          loveCounterPercentage
+            .text(Math.round(data.love * 10) / 10 + '%');
+          hateCounter
+            .css("width", data.hate + '%');
+          hateCounterPercentage
+            .text(Math.round(data.hate * 10) / 10 + '%');
           tweetList
             .prepend('<li>' + data.user + ': ' + data.text + '</li>');
-          loveCounter
-            .text(Math.round(data.love * 10) / 10 + '%')
-            .css("width", data.love + '%');
-          hateCounter
-            .text(Math.round(data.hate * 10) / 10 + '%')
-            .css("width", data.hate + '%');
         });
       });
     </script>
