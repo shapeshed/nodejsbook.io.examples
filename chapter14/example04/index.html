@@ -15,10 +15,16 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect();
+      var tweetList = $('ul.tweets');
+      var loveCounter = $('li.love');
+      var hateCounter = $('li.hate');
       socket.on('tweet', function (data) {
-        $('ul.tweets').prepend($('<li>').text(data.user + ': ' + data.text));
-        $('li.love').text(data.love + '%');
-        $('li.hate').text(data.hate + '%');
+        tweetList
+          .prepend('<li>' + data.user + ': ' + data.text + '</li>');
+        loveCounter
+          .text(data.love + '%');
+        hateCounter
+          .text(data.hate + '%');
       });
     </script>
   </body>

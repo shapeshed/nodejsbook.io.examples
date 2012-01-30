@@ -13,7 +13,8 @@
       var tweetList = $('ul.tweets');
       var socket = io.connect();
       socket.on('tweet', function (data) {
-        tweetList.prepend('<li>' + data.user + ': ' + data.text + '</li>');
+        tweetList
+          .prepend('<li>' + data.user + ': ' + data.text + '</li>');
       });
     </script>
   </body>
