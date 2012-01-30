@@ -5,10 +5,10 @@ var app = require('express').createServer()
 app.listen(3000);
 
 var twit = new twitter({
-  consumer_key: 'tK1npUCwqPIrRh6urfxcg',
-  consumer_secret: 'ggjnyhRb3b0dbRhKwpPCBDf7Q3cbikK1vaL2Or2Fo1A',
-  access_token_key: '359840007-1D3nxPc0iwRL0D3SA3ouTe46FCMvbWVxQ9DIPCUG',
-  access_token_secret: 'iIQisVEdJFheBBXiAInarFGGjjaqYZO0i9LlmNjM3c'
+  consumer_key: 'YOUR_CONSUMER_KEY',
+  consumer_secret: 'YOUR_CONSUMER_SECRET',
+  access_token_key: 'YOUR_ACCESS_TOKEN_KEY',
+  access_token_secret: 'YOUR_ACCESS_TOKEN_KEY'
 });
 
 twit.stream('statuses/filter', { track: ['love', 'hate'] }, function(stream) {
