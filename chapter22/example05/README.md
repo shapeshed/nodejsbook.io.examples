@@ -8,6 +8,12 @@ If the executable is the same name as your module you can be a bit shorter
 
     "bin": "./bin/ohai.js" 
 
+In the bin folder add the executable file 
+
+    #!/usr/bin/env node
+    var ohai = require("../lib/ohai");
+    console.log (ohai.hello());
+
 To test the executable you will need to link the module into your filesystem 
 
     npm link
