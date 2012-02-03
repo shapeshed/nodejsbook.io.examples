@@ -1,7 +1,7 @@
 {
   "author": "George Ornbo <george@shapeshed.com> (http://shapeshed.com/)",
-  "name": "example01",
-  "description": "An example package.json file",
+  "name": "ohaithere",
+  "description": "An example module used in the Sams Teach Yourself Node.js in 24 Hours book",
   "version": "0.0.0",
   "repository": {
     "url": ""
