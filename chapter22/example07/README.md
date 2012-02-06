@@ -1,5 +1,3 @@
-# Adding Travis CI, Github Information and publishing to npm 
+# Using module.exports
 
-This example shows how to add Travis CI to the project and adds repository information to the package.json file.
-
-
+This example demonstrates using `module.exports` when using an Object Orientated Programming style.
