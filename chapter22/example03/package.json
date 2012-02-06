@@ -9,9 +9,9 @@
   "engines": {
     "node": "~0.6.9"
   },
-  "main" : "./lib/ohai.js",
+  "main" : "./lib/ohaithere.js",
   "scripts": {
-    "test": "node ./test/ohai.js"
+    "test": "node ./test/ohaithere.js"
   },
   "dependencies": {},
   "devDependencies": {},
