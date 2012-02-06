@@ -5,21 +5,21 @@ If you follow Test Driven Development you will write tests before you write the 
 First add how tests should be run to the package.json file.
 
     "scripts": {
-      "test": "node ./test/ohai.js"
+      "test": "node ./test/ohaithere.js"
     }
 
 Then create a test for how you want the module to work.
 
     var assert = require ('assert')
-      , ohai = require('../lib/ohai');
+      , ohaithere = require('../lib/ohaithere');
 
     /**
      * Test that hello() returns the correct string
      */
     assert.equal(
-      ohai.hello(), 
-      'Hello from the ohai module', 
-      'Expected "Hello from the ohai module". Got "' + ohai.hello() + '"'
+      ohaithere.hello(), 
+      'Hello from the ohaithere module', 
+      'Expected "Hello from the ohaithere module". Got "' + ohaithere.hello() + '"'
     )
 
 Run the tests

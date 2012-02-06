@@ -12,11 +12,9 @@
   "main" : "./lib/ohai.js",
   "bin" : { "ohai" : "./bin/ohai.js" },
   "scripts": {
-    "test": "make test"
+    "test": "node ./test/ohaithere.js"
   },
   "dependencies": {},
-  "devDependencies": {
-    "mocha" : "0.10.2"
-  },
+  "devDependencies": {},
   "optionalDependencies": {}
 }

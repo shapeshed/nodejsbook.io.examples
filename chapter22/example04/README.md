@@ -25,15 +25,15 @@ Then create a Makefile
 Then create a test for how you want the module to work.
 
     var assert = require ('assert')
-      , ohai = require('../lib/ohai');
+      , ohaithere = require('../lib/ohaithere');
 
-    describe('Ohai module', function(){
+    describe('Ohaithere module', function(){
       describe('hello()', function(){
         it('should return a string saying hello', function(){
           assert.equal(
             ohai.hello(), 
-            'Hello from the ohai module', 
-            'Expected "Hello from the ohai module". Got "' + ohai.hello() + '"'
+            'Hello from the ohaithere module', 
+            'Expected "Hello from the ohaithere module". Got "' + ohai.hello() + '"'
           )
         })
       })
