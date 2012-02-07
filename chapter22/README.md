@@ -7,5 +7,6 @@ Chapter 22 shows how to create Node.js modules and share them.
 3. How to test your module with assert 
 4. How to test your module with mocha
 5. Adding an execuable to your module
-6. Using module.exports 
-7. Adding Travis CI, Github Information and publishing to npm
+6. Using module.exports with prototype-based programming
+7. Using module.exports with privileged methods
+8. Adding Travis CI, Github Information and publishing to npm
