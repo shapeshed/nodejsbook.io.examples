@@ -1,4 +1,4 @@
-# Chapter 22
+# Chapter 3
 
-Chapter 22 introduces callbacks and asynchronous programming.
+Chapter 3 explores what Node.js was designed for.
 
