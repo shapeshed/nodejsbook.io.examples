@@ -1,4 +1,4 @@
-debugger;
+//debugger;
 var foo = function(){
   var a = 3, b = 5;
   var bar = function() {
