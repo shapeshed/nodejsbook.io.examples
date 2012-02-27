@@ -1,0 +1,9 @@
+{
+  "name": "nodeunit_example",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "nodeunit": "0.7.4"
+  }
+}
+
