@@ -8,10 +8,10 @@ vows.describe('Async testing').addBatch({
       fs.stat('test.txt', this.callback);
     },
     'it should be present': function (err, stat) {
-      assert.equal(err, null);      
+      assert.strictEqual(err, null);      
     },
     'it should not be empty': function (err, stat) {
-      assert.notEqual(stat.size, 0);
+      assert.notStrictEqual(stat.size, 0);
     }
   },
 }).run(); 
