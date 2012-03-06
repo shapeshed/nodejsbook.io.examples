@@ -10,8 +10,9 @@ function nineToFive(req, res, next) {
   if (currentHour < 9 || currentHour > 17) {
     res.writeHead(503, {'Content-Type': 'text/plain'});
     res.end('We are closed. Come back between 0900 and 1700.');
+  } else {
+    next();
   }
-  next();
 }
 
 function helloWorld(req,res){
