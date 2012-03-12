@@ -1,0 +1,5 @@
+var fs = require('fs');
+var file1 = fs.readFileSync('file1.txt','utf8');
+console.log('file one read');
+var file2 = fs.readFileSync('file1.txt','utf8');
+console.log('file one read');

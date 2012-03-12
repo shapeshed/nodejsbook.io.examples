@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Callback Example</title>
+  </head>
+  <body>
+    <h1>Callback Example</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut augue et orci aliquam aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam fermentum dictum convallis. In at diam et orci sodales sollicitudin. Sed viverra, orci sit amet faucibus condimentum, nibh augue consectetur ipsum, eu tristique dolor diam interdum tellus. Donec in diam nunc. Nulla sollicitudin elit sit amet neque elementum ac cursus nibh lobortis.</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('p').hide('slow', function() {
+          alert("The paragraph is now hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
