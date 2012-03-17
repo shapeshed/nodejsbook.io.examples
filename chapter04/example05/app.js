@@ -4,15 +4,17 @@ function sleep(milliseconds) {
   }
 }
 
-function queryDb() {
+function fetchPage() {
+  console.log('fetching page');
   sleep(2000); // simulate time to query a database
-  console.log('data returned from the api');
-}
-
-function fetchApi() {
-  sleep(2000); // simulate time to fetch from an api
   console.log('database query finished');
 }
 
-queryDb();
+function fetchApi() {
+  console.log('fetching api');
+  sleep(2000); // simulate time to fetch from an api
+  console.log('data returned from the api');
+}
+
+fetchPage();
 fetchApi();
