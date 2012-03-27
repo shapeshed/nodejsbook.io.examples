@@ -25,8 +25,7 @@ App.TasksView = Backbone.View.extend({
     }));
   },
   events : {
-    'submit form' : 'createTask',
-    'click button' : 'deleteTask'
+    'submit form' : 'createTask'
   },
   createTask: function (event) {
     event.preventDefault();
