@@ -1,0 +1,37 @@
+!!! 5
+html
+  head
+    title Node.js / Backbone.js Example
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 Tasks
+    div#tasks
+    script(id='task_form', type='text/template')
+      | <form action='' id='task-form'>
+      |   <fieldset>
+      |     <legend>Add a task</legend>
+      |     <input type='text' name='title' class='task-title' />
+      |     <input type='submit' value='Submit' />
+      |   </fieldset>
+      | </form>
+    script(id='task_template', type='text/template')
+      | <li data-id="<%= task.id %>">
+      |   <%= task.get('title') %>
+      | </li>
+    script(id='tasks_template', type='text/template')
+      | <%= task_form() %>
+      | <ul>
+      |   <% _.each(tasks, function(task){ %>
+      |     <%= task_template({ task: task }) %>
+      |   <% }); %>
+      | </ul>
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.1/backbone-min.js')
+    script(src='/javascripts/application.js')
+    script
+      var tasks = new App.Tasks;
+      tasks.reset(!{tasks});
+      $(function() {
+        App.init();
+      });
