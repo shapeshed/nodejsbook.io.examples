@@ -1,25 +1,10 @@
-var fs = require('fs')
-  , http = require('http')
+function haveBreakfast(food, drink, callback) {
+  console.log('Having breakfast of ' + food + ', ' + drink);
+  if (callback && typeof(callback) === "function") {
+    callback();
+  }
+}
 
-http.get({ host: 'shapeshed.com' }, function(res) {
-  console.log("Got a response from shapeshed.com");
-}).on('error', function(e) {
-  console.log("There was an error from shapeshed.com");
+haveBreakfast('toast', 'coffee', function() {
+  console.log('Finished breakfast. Time to go to work!');
 });
-
-fs.readFile('file1.txt', 'utf-8', function (err, data) {
-  if (err) throw err;
-  console.log('File 1 read!');
-});
-
-http.get({ host: 'www.bbc.co.uk' }, function(res) {
-  console.log("Got a response from bbc.co.uk");
-}).on('error', function(e) {
-  console.log("There was an error from bbc.co.uk");
-});
-
-fs.readFile('file2.txt', 'utf-8', function (err, data) {
-  if (err) throw err;
-  console.log('File 2 read!');
-});
-

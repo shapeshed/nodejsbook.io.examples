@@ -1,6 +1,7 @@
 var http = require('http')
 
-function queryDb() {
+function fetchPage() {
+  console.log('fetching page');
   http.get({ host: 'trafficjamapp.herokuapp.com', path: '/?delay=2000' }, function(res) {
     console.log('database query finished');
   }).on('error', function(e) {
@@ -9,6 +10,7 @@ function queryDb() {
 }
 
 function fetchApi() {
+  console.log('fetching api');
   http.get({ host: 'trafficjamapp.herokuapp.com', path: '/?delay=2000' }, function(res) {
     console.log('data returned from the api');
   }).on('error', function(e) {
@@ -16,5 +18,5 @@ function fetchApi() {
   });
 }
 
-queryDb();
+fetchPage();
 fetchApi();
