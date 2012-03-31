@@ -1,0 +1,17 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+    <meta charset="utf-8" />  
+    <title>JavaScript Events</title>  
+  </head>  
+  <body>  
+  <h1>JavaScript Events</h1> 
+  <button id="target">Click me</button>
+  <script type="text/javascript">
+    var target = document.getElementById('target');
+    target.addEventListener('click', function () {
+      alert('Click event fired. Target was clicked!');
+    }, false);
+  </script>
+  </body>  
+</html>
