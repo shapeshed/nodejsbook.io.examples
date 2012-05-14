@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-var ohai = require("../lib/ohai");
+var ohaithere = require("../lib/ohaithere");
 console.log (ohai.hello());
 

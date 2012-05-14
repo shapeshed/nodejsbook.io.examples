@@ -1,6 +1,6 @@
 
-var assert = require ('assert')
-  , ohaithere = require('../lib/ohaithere');
+var assert = require ('assert'),
+  ohaithere = require('../lib/ohaithere');
 
 describe('Ohai module', function(){
   describe('hello()', function(){

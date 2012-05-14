@@ -17,8 +17,8 @@
   "engines": {
     "node": "0.4 || 0.6 || 0.7"
   },
-  "main" : "./lib/ohai.js",
-  "bin" : { "ohai" : "./bin/ohai.js" },
+  "main" : "./lib/ohaithere.js",
+  "bin" : "./bin/ohaithere.js",
   "scripts": {
     "test": "make test"
   },

@@ -10,7 +10,7 @@
     "node": "~0.6.9"
   },
   "main" : "./lib/ohaithere.js",
-  "bin" : { "ohai" : "./bin/ohaithere.js" },
+  "bin" : "./bin/ohaithere.js",
   "scripts": {
     "test": "node ./test/ohaithere.js"
   },

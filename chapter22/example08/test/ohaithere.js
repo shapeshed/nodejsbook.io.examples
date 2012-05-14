@@ -1,14 +1,14 @@
 
-var assert = require ('assert')
-  , ohai = require('../lib/ohai');
+var assert = require ('assert'),
+  ohaithere = require('../lib/ohaithere');
 
 describe('Ohai module', function(){
   describe('hello()', function(){
     it('should return a string saying hello', function(){
       assert.equal(
-        ohai.hello(), 
+        ohaithere.hello(), 
         'Hello from the ohai module', 
-        'Expected "Hello from the ohai module". Got "' + ohai.hello() + '"'
+        'Expected "Hello from the ohai module". Got "' + ohaithere.hello() + '"'
       )
     })
   })

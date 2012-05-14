@@ -1,5 +1,5 @@
-var assert = require ('assert')
-  , ohaithere = require('../lib/ohaithere');
+var assert = require ('assert'),
+  ohaithere = require('../lib/ohaithere');
 
   /**
  *  * Test that hello() returns the correct string
