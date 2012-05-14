@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Socket.io Example</title>
+    <title>Socket.IO Example</title>
   </head>
   <body>
-    <h1>Socket.io Example</h1>
+    <h1>Socket.IO Example</h1>
     <form id="message-form" action="#">
       <textarea id="message" rows="4" cols="30"></textarea>
       <input type="submit" value="Send message" />
@@ -14,11 +14,12 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect('http://127.0.0.1:3000');
-      $('#message-form').submit(function() {
-        socket.emit('message', { text: $('#message').val() });
+      var message = document.getElementById('message');
+      $(message.form).submit(function() {
+        socket.emit('message', { text: message.value });
         return false;
       });
-      socket.on('broadcast', function (data) {
+      socket.on('push message', function (data) {
         $('form').after('<p>' + data.text + '</p>');
       });
     </script>
