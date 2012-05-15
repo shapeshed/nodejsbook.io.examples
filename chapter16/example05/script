@@ -13,8 +13,8 @@ var options = {
 };
 
 http.get(options, function(res) {
-  var data = ""
-    , json;
+  var data = "";
+  var json;
   res.on("data", function (chunk) {
     data += chunk;
   });
