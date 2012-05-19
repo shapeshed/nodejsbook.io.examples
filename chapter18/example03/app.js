@@ -1,7 +1,7 @@
-var https = require('https')
-  , username = 'YOUR_TWITTER_USERNAME'
-  , password = 'YOUR_TWITTER_PASSWORD'
-  , json;
+var https = require('https');
+var username = 'YOUR_TWITTER_USERNAME';
+var password = 'YOUR_TWITTER_PASSWORD';
+var json;
 
 var options = {
   host: 'stream.twitter.com',

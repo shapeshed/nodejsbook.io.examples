@@ -1,5 +1,5 @@
-var EventEmitter = require('events').EventEmitter
-  , pingPong = new EventEmitter();
+var EventEmitter = require('events').EventEmitter;
+var pingPong = new EventEmitter();
 
 setTimeout(function(){
   console.log('Sending first ping');

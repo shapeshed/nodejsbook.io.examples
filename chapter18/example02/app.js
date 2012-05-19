@@ -1,5 +1,5 @@
-var EventEmitter = require('events').EventEmitter
-  , secretMessage = new EventEmitter();
+var EventEmitter = require('events').EventEmitter;
+var secretMessage = new EventEmitter();
 
 secretMessage.on('message', function(data) {
   console.log(data);
