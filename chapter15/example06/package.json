@@ -1,16 +1,16 @@
 {
-    "name": "json_api"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.3"
-    , "mongoose": ">= 2.3.1"
-  }
-  , "scripts": {
-    "test": "make test"
-  }
-  , "devDependencies": {
-    "mocha": "0.3.x"
+  "name":"json_api",
+  "version":"0.0.1",
+  "private":true,
+  "dependencies":{
+    "express":"2.5.3",
+    "mongoose":">= 2.3.1"
+  },
+  "scripts":{
+    "test":"make test"
+  },
+  "devDependencies":{
+    "mocha":"0.3.x"
   }
 }
 

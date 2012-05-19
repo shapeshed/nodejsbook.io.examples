@@ -1,5 +1,5 @@
-var express = require('express')
-, mongoose = require('mongoose');
+var express = require('express');
+var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
