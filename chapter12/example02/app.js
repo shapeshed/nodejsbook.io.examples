@@ -1,6 +1,6 @@
-var http = require('http'),
-  fs = require('fs'),
-  count = 0;
+var http = require('http'); 
+var fs = require('fs');
+var count = 0;
 
 var server = http.createServer(function (req, res) {
   fs.readFile('./index.html', function(error, data) {
