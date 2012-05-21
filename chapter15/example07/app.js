@@ -1,5 +1,5 @@
-var express = require('express')
-  , mongoose = require('mongoose');
+var express = require('express');
+var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
@@ -35,9 +35,11 @@ app.configure('test', function() {
   app.listen(3001);
 });
 
-app.get('/api/v1/tasks', function(req, res, next){
-  Task.find({}, function (err, docs) {
-    res.send(docs);
-  });
-});
+// Uncomment this section to make tests pass!
+//app.get('/api/v1/tasks', function(req, res, next){
+//  Task.find({}, function (err, docs) {
+//    res.send(docs);
+//  });
+//});
+
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

@@ -1,6 +1,6 @@
-var cluster = require('cluster')
-  , http = require('http')
-  , cpus = 2;
+var cluster = require('cluster');
+var http = require('http');
+var cpus = 2;
 
 if (cluster.isMaster) {
   console.log('Master process started with PID:', process.pid);

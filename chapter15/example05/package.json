@@ -1,8 +1,8 @@
 {
-    "name": "express-json"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.4"
+  "name":"express-json",
+  "version":"0.0.1",
+  "private":true,
+  "dependencies":{
+    "express":"2.5.4"
   }
 }
