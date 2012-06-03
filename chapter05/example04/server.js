@@ -1,28 +1,25 @@
-var http = require('http')
-, url = require('url');
+var http = require('http'),
+    url = require('url');
 
 http.createServer(function (req, res) {
   var pathname = url.parse(req.url).pathname;
-  switch(pathname) {
-    case '/':
+
+  if (pathname === '/') {
       res.writeHead(200, {
       'Content-Type': 'text/plain'
     });
     res.end('Home Page\n')
-    break;
-    case '/about':
+  } else if (pathname === '/about') {
       res.writeHead(200, {
       'Content-Type': 'text/plain'
     });
     res.end('About Us\n')
-    break;
-    case '/redirect':
+  } else if (pathname === '/redirect') {
       res.writeHead(301, {
       'Location': '/'
     });
     res.end();
-    break;
-    default:
+  } else {
       res.writeHead(404, {
       'Content-Type': 'text/plain'
     });
