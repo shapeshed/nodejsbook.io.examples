@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
+var express = require('express');
+var routes = require('./routes');
 
 var port = process.env.PORT || 3000;
 

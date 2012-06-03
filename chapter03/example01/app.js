@@ -1,5 +1,5 @@
-var http = require('http')
-  , urls = ['shapeshed.com', 'www.bbc.co.uk', 'edition.cnn.com']
+var http = require('http');
+var urls = ['shapeshed.com', 'www.bbc.co.uk', 'edition.cnn.com'];
 
 function fetchPage(url) {
   var start = new Date();
