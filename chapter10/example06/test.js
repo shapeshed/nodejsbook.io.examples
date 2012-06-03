@@ -1,6 +1,6 @@
-var vows = require('vows')
-  , assert = require('assert')
-  , fs = require('fs')
+var vows = require('vows'),
+    assert = require('assert'),
+    fs = require('fs');
 
 vows.describe('Async testing').addBatch({
   'When using fs.stat on a file': {

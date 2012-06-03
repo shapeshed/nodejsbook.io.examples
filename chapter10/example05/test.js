@@ -1,5 +1,5 @@
-var vows = require('vows')
-  , assert = require('assert')
+var vows = require('vows'),
+    assert = require('assert');
 
 vows.describe('Comparing strings').addBatch({
   'when comparing the same strings': {
