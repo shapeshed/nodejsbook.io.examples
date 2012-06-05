@@ -1,5 +1,5 @@
-var connect = require('connect')
-  , http = require('http');
+var connect = require('connect'),
+    http = require('http');
 
 var app = connect()
   .use(helloWorld)

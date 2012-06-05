@@ -1,5 +1,5 @@
-var connect = require('connect')
-  , http = require('http');
+var connect = require('connect');
+    http = require('http');
 
 var app = connect()
   .use(filterByIp(['127.0.0.1']))
@@ -7,7 +7,7 @@ var app = connect()
 
 
 function filterByIp(ips){
-  var ips = ips || false;
+  var ips = ips || [];
   return function (req, res, next){
     if (ips.indexOf(req.connection.remoteAddress) == -1) {
       res.writeHead(401, {'Content-Type': 'text/plain'});
