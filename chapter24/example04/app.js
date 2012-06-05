@@ -1,5 +1,5 @@
-var express = require('express')
-    , db = require("mongojs").connect('backbone_tasks', ['tasks']);
+var express = require('express'),
+    db = require("mongojs").connect('backbone_tasks', ['tasks']);
 
 var app = module.exports = express.createServer();
 app.use(express.bodyParser());
