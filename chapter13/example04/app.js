@@ -1,6 +1,6 @@
-var app = require('express').createServer()
-  , io = require('socket.io').listen(app)
-  , nicknames = [];
+var app = require('express').createServer(),
+    io = require('socket.io').listen(app),
+    nicknames = [];
 
 app.listen(3000);
 
@@ -9,11 +9,11 @@ app.get('/', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-  socket.on('nickname', function (data, fn) {
+  socket.on('nickname', function (data, callback) {
     if (nicknames.indexOf(data) != -1) { 
-      fn(true);
+      callback(false);
     } else {
-      fn(false);
+      callback(true);
       nicknames.push(data);
       socket.nickname = data;
       console.log('Nicknames are ' + nicknames);
@@ -21,7 +21,9 @@ io.sockets.on('connection', function (socket) {
   });
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
-    nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+    if (nicknames.indexOf(socket.nickname) > -1) {
+      nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+    }
     console.log('Nicknames are ' + nicknames);
   });
 });

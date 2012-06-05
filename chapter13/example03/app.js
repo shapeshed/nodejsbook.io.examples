@@ -1,6 +1,6 @@
-var app = require('express').createServer()
-  , io = require('socket.io').listen(app)
-  , nicknames = [];
+var app = require('express').createServer(),
+    io = require('socket.io').listen(app),
+    nicknames = [];
 
 app.listen(3000);
 
@@ -16,7 +16,9 @@ io.sockets.on('connection', function (socket) {
   });
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
-    nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+    if (nicknames.indexOf(socket.nickname) > -1) {
+      nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+    }
     console.log('Nicknames are ' + nicknames);
   });
 });
