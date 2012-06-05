@@ -1,6 +1,6 @@
 var fs = require('fs');
 var stream = fs.ReadStream('latin.txt');
-stream.setEncoding('utf-8');
+stream.setEncoding('utf8');
 stream.on('data', function(chunk) {
   console.log('read some data')
 });
