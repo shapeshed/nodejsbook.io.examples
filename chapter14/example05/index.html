@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Socket.io Twitter Example</title>
-    <style type="text/css">
+    <style>
       ul.percentage { width: 100% }
       ul.percentage li { display: block; width: 0 }
       ul.percentage li span { float: right; display: block}
@@ -27,11 +27,11 @@
     <script>
       var socket = io.connect();
       jQuery(function ($) { 
-        var tweetList = $('ul.tweets');
-        var loveCounter = $('li.love');
-        var hateCounter = $('li.hate');
-        var loveCounterPercentage = $('li.love span');
-        var hateCounterPercentage = $('li.hate span');
+        var tweetList = $('ul.tweets'),
+            loveCounter = $('li.love'),
+            hateCounter = $('li.hate'),
+            loveCounterPercentage = $('li.love span'),
+            hateCounterPercentage = $('li.hate span');
         socket.on('tweet', function (data) {
           loveCounter
             .css("width", data.love + '%');

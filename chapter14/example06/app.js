@@ -1,9 +1,9 @@
-var app = require('express').createServer()
-, twitter = require('ntwitter')
-, io = require('socket.io').listen(app)
-, love = 0
-, hate = 0
-, total = 0
+var app = require('express').createServer(),
+    twitter = require('ntwitter'),
+    io = require('socket.io').listen(app),
+    love = 0,
+    hate = 0,
+    total = 0;
 
 app.listen(3000);
 
@@ -17,7 +17,8 @@ var twit = new twitter({
 twit.stream('statuses/filter', { track: ['love', 'hate'] }, function(stream) {
   stream.on('data', function (data) {
     if (data.text) { 
-      if (data.text.indexOf('love') != -1) {
+      var text = data.text.toLowerCase();
+      if (text.indexOf('love') != -1) {
         love++
         total++
         if ((love % 82) == 0){
@@ -28,7 +29,7 @@ twit.stream('statuses/filter', { track: ['love', 'hate'] }, function(stream) {
           });
         }
       }
-      if (data.text.indexOf('hate') != -1) {
+      if (text.indexOf('hate') != -1) {
         hate++
         total++
         if ((hate % 18) == 0){

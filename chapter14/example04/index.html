@@ -16,9 +16,9 @@
     <script>
       var socket = io.connect();
       jQuery(function ($) { 
-        var tweetList = $('ul.tweets');
-        var loveCounter = $('li.love');
-        var hateCounter = $('li.hate');
+        var tweetList = $('ul.tweets'),
+            loveCounter = $('li.love'),
+            hateCounter = $('li.hate');
         socket.on('tweet', function (data) {
           tweetList
             .prepend('<li>' + data.user + ': ' + data.text + '</li>');

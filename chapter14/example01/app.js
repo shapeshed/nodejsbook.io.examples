@@ -1,5 +1,5 @@
-var app = require('express').createServer()
-, twitter = require('ntwitter');
+var app = require('express').createServer(),
+    twitter = require('ntwitter');
 
 app.listen(3000);
 

@@ -1,6 +1,6 @@
-var app = require('express').createServer()
-, twitter = require('ntwitter')
-, io = require('socket.io').listen(app)
+var app = require('express').createServer(),
+    twitter = require('ntwitter'),
+    io = require('socket.io').listen(app);
 
 app.listen(3000);
 
