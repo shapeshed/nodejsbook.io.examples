@@ -1,71 +1,124 @@
 !!!
 html
   head
-    title= title
+    title Node.js Chat Server
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700,500,600')    
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='/socket.io/socket.io.js')
     script
       var socket = io.connect();
-      socket.on('nicknames', function (data) {
-        $('#right-column').empty().append($('<ul>'));
-        for(var i=0; i<data.length; i++) {
-          $('#right-column ul').append('<li>' + data[i] + '</li>');
-        }
-      });
-      socket.on('announcement', function (data) {
-       $('#chat-box').append($('<p>').append($('<em>').text(data.message)));
-      });
-      socket.on('user message', function (data) {
-        $('#chat-box').append($('<p>').append($('<strong>').text(data.nick), data.message));
-      });
-      $(function () {
+      jQuery(function ($) { 
+        var users = $('.users');
+        var usersList = $('.users ul');
+        var messages = $('.messages');
+        var nickname = $('#nickname');
+        var messageForm = $('.message-box form');
+        var message = $('.message');
+        var wrapper = $('.wrapper');
+        var login = $('.login');
+        var setNicknameForm = $('.login form');
+        var showButton = $('.show');
+
+        nickname.focus(function() {
+          $(this).val('');
+        });
+
+        nickname.val("Your nickname");
+
+        socket.on('nicknames', function (data) {
+          var html = '';
+          for (var i = 0; i < data.length; i++) {
+            html += '<li><span>' + data[i] + '</span></li>';
+          }
+          usersList.empty().append(html);
+        });
+
+        socket.on('announcement', function (data) {
+          messages.append('<p>' + data.message + '</p>');
+        });
+
+        socket.on('user message', function (data) {
+          messages.append('<p><strong>' + data.nick + '</strong> ' +  data.message + '</p>');
+        });
+
         /*
         * Set the nickname for a user
         * A callback is received from the server. If it is true then the name 
         * already taken. 
         */
-        $('#set-nickname').submit(function() {
-          socket.emit('nickname', $('#nickname').val(), function (data) {
-            if (!data) {
-              $('#login').hide();
-              $('#wrapper').show();
+        setNicknameForm.submit(function(event) {
+          event.preventDefault(); 
+          socket.emit('nickname', nickname.val(), function (data) {
+            if (data) {
+              console.log('Nickname set successfully');
+              login.hide();
+              wrapper.show();
             } else {
-              $('#set-nickname')
-                .prepend($('<p>')
-                .append($('<strong>')
-                .text('name already taken')));
+              setNicknameForm.prepend('<p>Sorry - that nickname is already taken.</p>');
             }
           });
-          return false;
         });
 
         /*
         * Sends a message to the server
         */
-        $('#send-message').submit(function () {
-          socket.emit('user message', $('#message').val());
-          $('#message').val('').focus();
-          return false;
+        messageForm.submit(function(event) {
+          event.preventDefault(); 
+          socket.emit('user message', message.val());
+          message.val('').focus();
+        });
+
+        showButton.hover(
+          function () {
+            $(this).animate({
+                'padding-right': '+=2',
+                'margin-left': '-=2'
+              }, 150);
+            }, 
+            function () {
+              $(this).animate({
+                'padding-right': '-=2',
+                'margin-left': '+=2'
+            }, 150);
+          }
+        );
+
+
+        showButton.toggle(function() {
+          $(this)
+            .text('>')
+            .css('margin-left', '180px')
+            .attr('title', 'Hide users');
+            users.show();
+            messages.css('width', '200px');
+        }, function() {
+          $(this)
+            .text('<')
+            .css('margin-left', '331px')
+            .attr('title', 'Show users');
+            users.hide();
+            messages.css('width', '350px');
         });
       });
 
-  body!= body
-    h1.logo G.O. CHAT
-    div.stalk
-    section#login
-      form#set-nickname
-        label nickname:
-        input#nickname(type='text')
-        input#thats-me(type='submit')(value='thats me!')
-    section#wrapper
-      section#left-column 
-        section#chat-box 
-        section#message-box 
-          form#send-message
-            textarea#message
-            input#speak(type='submit')(value='SPEAK!')
-      section#right-column 
+
+
+
+
+body!= body
+  section.login
+    h1 Node.js Chat Server
+    form
+      input(type='text', id='nickname')
+      button Submit
+  section.wrapper
+    section.messages
+      a(title='Show users').show <
+    section.users
+      ul
+    section.message-box 
+      form
+        input.message
+        button Submit
 
 

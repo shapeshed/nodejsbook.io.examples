@@ -1,18 +1,28 @@
+var express = require('express'),
+    routes = require('./routes');
 
-/**
- * Module dependencies.
- */
+var app = module.exports = express.createServer(),
+    io = require('socket.io').listen(app),
+    nicknames = [];
 
-var express = require('express')
-  , routes = require('./routes')
-
-var app = module.exports = express.createServer()
-  , io = require('socket.io').listen(app)
-  , nicknames = [];
-
-app.listen(80);
+app.listen(3000);
 
 io.sockets.on('connection', function (socket) {
+  socket.on('nickname', function (data, callback) {
+    if (nicknames.indexOf(data) != -1) { 
+      callback(false);
+    } else {
+      callback(true);
+      nicknames.push(data);
+      socket.nickname = data;
+      console.log('Nicknames are ' + nicknames);
+      io.sockets.emit('nicknames', nicknames);
+      socket.broadcast.emit('announcement', {
+        nick: 'system',
+        message: data + ' connected' 
+      });
+    }
+  });
   socket.on('user message', function (data) {
     io.sockets.emit('user message', { 
       nick: socket.nickname, 
@@ -20,30 +30,17 @@ io.sockets.on('connection', function (socket) {
     });
   });
 
-  socket.on('nickname', function (data, fn) {
-    if (nicknames.indexOf(data) != -1) { 
-      fn(true);
-    } else {
-      fn(false);
-      socket.nickname = data;
-      nicknames.push(data);
-      socket.broadcast.emit('announcement', {
-        nick: 'system',
-        message: data + ' connected' 
-      });
-      io.sockets.emit('nicknames', nicknames);
-    }
-  });
-
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
-    nicknames.splice(nicknames.indexOf(socket.nickname), 1);
-    socket.broadcast.emit('announcement', socket.nickname + ' disconnected');
+    if (nicknames.indexOf(socket.nickname) > -1) {
+      nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+    }
+    console.log('Nicknames are ' + nicknames);
     socket.broadcast.emit('announcement', {
       nick: 'system',
       message: socket.nickname + ' disconnected' 
     });
-    socket.broadcast.emit('nicknames', nicknames);
+    io.sockets.emit('nicknames', nicknames);
   });
 });
 
@@ -67,15 +64,8 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
-io.sockets.on('connection', function (socket) {
-  
-  socket.on('disconnect', function () {
-  });
-});
-
 // Routes
 
 app.get('/', routes.index);
 
-app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
