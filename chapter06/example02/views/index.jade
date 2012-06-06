@@ -10,9 +10,9 @@ section#wrapper
   p Before
   pre
     code 
-      \section
-        \p
-         \span This is a span within a p within a section!
+      |section
+      |  p
+      |    span This is a span within a p within a section!
   :markdown
     After
 
@@ -28,7 +28,8 @@ section#wrapper
 
   p Before
   pre
-    code \section#foo
+    code 
+      | section#foo
   :markdown
     After
 
@@ -40,7 +41,8 @@ section#wrapper
 
   p Before
   pre
-    code \section.bar
+    code 
+      | section.bar
   :markdown
     After
 
@@ -52,7 +54,8 @@ section#wrapper
 
   p Before
   pre
-    code \section.one.two.three.four
+    code 
+      | section.one.two.three.four
   :markdown
     After
 
@@ -64,7 +67,8 @@ section#wrapper
 
   p Before
   pre
-    code \section#foo.bar
+    code 
+      |  section#foo.bar
   :markdown
     After
 
@@ -76,7 +80,8 @@ section#wrapper
 
   p Before
   pre
-    code \section#foo.one.two.three.four
+    code 
+      | section#foo.one.two.three.four
   :markdown
     After
 
