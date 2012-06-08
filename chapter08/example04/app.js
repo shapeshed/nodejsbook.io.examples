@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , mongoose = require('mongoose');
+var express = require('express'),
+    routes = require('./routes'),
+    mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/todo_development', function(err) {
   if (!err) {
