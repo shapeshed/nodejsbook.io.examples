@@ -3,5 +3,8 @@
   "version": "0.0.0",
   "devDependencies": {
     "mocha": "0.10.1"
+  },
+  "scripts" : { 
+    "test" : "./node_modules/.bin/mocha test.js"
   }
 }
