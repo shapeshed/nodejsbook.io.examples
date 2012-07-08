@@ -1,10 +1,10 @@
 var fs = require('fs');
 var readableStream = fs.ReadStream('names.txt');
-var writeableStream = fs.WriteStream('out.txt');
+var writableStream = fs.WriteStream('out.txt');
 readableStream.setEncoding('utf8');
 readableStream.on('data', function(chunk) {
-  writeableStream.write(chunk);
+  writableStream.write(chunk);
 });
 readableStream.on('close', function () {
-  writeableStream.end();
+  writableStream.end();
 });
