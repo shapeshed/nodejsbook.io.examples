@@ -7,7 +7,7 @@ function sleep(milliseconds) {
 function fetchPage() {
   console.log('fetching page');
   sleep(2000); // simulate time to query a database
-  console.log('database query finished');
+  console.log('data returned from requesting page');
 }
 
 function fetchApi() {
