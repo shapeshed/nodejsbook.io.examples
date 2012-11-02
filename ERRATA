@@ -1,0 +1,6 @@
+# Errata
+
+## 02/11/12 - Hour 17, Example 4
+* Due to API changes in 0.8.x the event for a worker dying is now `exit` rather than `death`. The example has been updated to reflect this. 
+* Due to API changes in 0.8.x accessing a worker PID is now `worker.process.pid` rather than `worker.pid`. The example has been updated to reflect this.
+
