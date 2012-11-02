@@ -9,8 +9,10 @@ if (cluster.isMaster) {
     cluster.fork();
   }
 
-  cluster.on('death', function(worker) {
-    console.log('worker ' + worker.pid + ' died');
+  // note core API change. the event is now exit.
+  cluster.on('exit', function(worker) {
+    // note core API change. the pid is now access through worker.process.pid
+    console.log('worker ' + worker.process.pid + ' died');
     cluster.fork();
   });
 
