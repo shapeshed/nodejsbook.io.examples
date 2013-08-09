@@ -7,7 +7,7 @@ var options = {
 };
 
 http.get(options, function(res) {
-  if (res.statusCode  == 200) {
+  if (res.statusCode  === 200) {
     console.log("The site is up!");
   }
   else {

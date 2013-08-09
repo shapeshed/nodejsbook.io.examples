@@ -8,7 +8,7 @@ var fs = require('fs'),
   });
 
   fs.readFile('file1.txt', 'utf8', function (err, data) {
-      if (err) throw err;
+      if (err) { throw err; }
       console.log('File 1 read!');
   });
 
@@ -19,6 +19,6 @@ var fs = require('fs'),
   });
 
   fs.readFile('file2.txt', 'utf8', function (err, data) {
-      if (err) throw err;
+      if (err) { throw err; }
       console.log('File 2 read!');
   });

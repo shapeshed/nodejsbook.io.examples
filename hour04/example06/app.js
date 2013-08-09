@@ -1,4 +1,4 @@
-var http = require('http')
+var http = require('http');
 
 function fetchPage() {
   console.log('fetching page');

@@ -8,7 +8,7 @@ var options = {
 
 function ping_server(){
   http.get(options, function(res) {
-    if (res.statusCode  == 200) {
+    if (res.statusCode  === 200) {
       console.log("The site is up!");
     }
     else {
@@ -19,5 +19,5 @@ function ping_server(){
   });
 }
 
-setInterval(ping_server, 5000);  
+setInterval(ping_server, 5000);
 
