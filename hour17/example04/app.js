@@ -1,6 +1,6 @@
-var cluster = require('cluster');
-var http = require('http');
-var cpus = require('os').cpus().length;
+var cluster = require('cluster'),
+  http = require('http'),
+  cpus = require('os').cpus().length;
 
 if (cluster.isMaster) {
   console.log('Master process started with PID:', process.pid);
@@ -11,7 +11,7 @@ if (cluster.isMaster) {
 
   // note core API change. the event is now exit.
   cluster.on('exit', function(worker) {
-    // note core API change. the pid is now access through worker.process.pid
+    // note core API change. the pid is now accessed through worker.process.pid
     console.log('worker ' + worker.process.pid + ' died');
     cluster.fork();
   });
