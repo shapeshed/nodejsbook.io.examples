@@ -1,88 +1,91 @@
-h1 Defining structure with Jade
+extends layout
 
-section#wrapper 
-  h2 Basic Structure
-  section
-    p
-      span This is a span within a p within a section!
-  hr
+block content
+  h1= title
 
-  p Before
-  pre
-    code 
-      |section
-      |  p
-      |    span This is a span within a p within a section!
-  :markdown
-    After
+  section#wrapper 
+    h2 Basic Structure
+    section
+      p
+        span This is a span within a p within a section!
+    hr
 
-        <section>
-          <p>
-            <span>This is a span within a p within a section!</span>
-          </p>
-        </section>
+    p Before
+    pre
+      code 
+        |section
+        |  p
+        |    span This is a span within a p within a section!
+    :markdown
+      After
 
-  h2 Adding ids to tags
-  section#foo This section has an id of 'foo'
-  hr
+          <section>
+            <p>
+              <span>This is a span within a p within a section!</span>
+            </p>
+          </section>
 
-  p Before
-  pre
-    code 
-      | section#foo
-  :markdown
-    After
+    h2 Adding ids to tags
+    section#foo This section has an id of 'foo'
+    hr
 
-        <section id="foo"></section>
+    p Before
+    pre
+      code 
+        | section#foo
+    :markdown
+      After
 
-  h2 Adding classes to tags
-  section.bar This section has an class name of 'bar'
-  hr
+          <section id="foo"></section>
 
-  p Before
-  pre
-    code 
-      | section.bar
-  :markdown
-    After
+    h2 Adding classes to tags
+    section.bar This section has an class name of 'bar'
+    hr
 
-        <section class="bar"></section>
+    p Before
+    pre
+      code 
+        | section.bar
+    :markdown
+      After
 
-  h2 Specifying multiple classes
-  section.one.two.three.four This section has class names of 'one', 'two', 'three', 'four'
-  hr
+          <section class="bar"></section>
 
-  p Before
-  pre
-    code 
-      | section.one.two.three.four
-  :markdown
-    After
+    h2 Specifying multiple classes
+    section.one.two.three.four This section has class names of 'one', 'two', 'three', 'four'
+    hr
 
-        <section class="one two three four"></section>
+    p Before
+    pre
+      code 
+        | section.one.two.three.four
+    :markdown
+      After
 
-  h2 Specifying a class and an id
-  section#foo.bar This section has an id of 'foo' and a class name of 'bar'
-  hr
+          <section class="one two three four"></section>
 
-  p Before
-  pre
-    code 
-      |  section#foo.bar
-  :markdown
-    After
+    h2 Specifying a class and an id
+    section#foo.bar This section has an id of 'foo' and a class name of 'bar'
+    hr
 
-        <section id="foo" class="bar"></section>
+    p Before
+    pre
+      code 
+        |  section#foo.bar
+    :markdown
+      After
 
-  h2 Specifying multiple classes and an id
-  section#foo.one.two.three.four This section has an id of 'foo' and a class names of 'one', two', 'three', 'four'
-  hr
+          <section id="foo" class="bar"></section>
 
-  p Before
-  pre
-    code 
-      | section#foo.one.two.three.four
-  :markdown
-    After
+    h2 Specifying multiple classes and an id
+    section#foo.one.two.three.four This section has an id of 'foo' and a class names of 'one', two', 'three', 'four'
+    hr
 
-        <section id="foo" class="one two three four"></section>
+    p Before
+    pre
+      code 
+        | section#foo.one.two.three.four
+    :markdown
+      After
+
+          <section id="foo" class="one two three four"></section>
