@@ -22,7 +22,7 @@ pingPong.on('pong', function() {
 
 var logPing = function() {
   console.log("Second ping listener got ping");
-}
+};
 
 setTimeout(function(){
   console.log('Added a second ping listener');
