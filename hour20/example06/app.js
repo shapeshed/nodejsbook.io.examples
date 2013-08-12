@@ -1,4 +1,5 @@
-var fs = require('fs');
-var readableStream = fs.ReadStream('names.txt');
-var writableStream = fs.WriteStream('out.txt');
+var fs = require('fs'),
+  readableStream = fs.ReadStream('names.txt'),
+  writableStream = fs.WriteStream('out.txt');
+
 readableStream.pipe(writableStream);
