@@ -1,16 +1,17 @@
-section.container
-  h2 Form example
+extends layout
 
-  form(method='post', action='/')
-    fieldset
-      legend Add a user
-      p.clearfix
-        label First name
-        input(name='user[first_name]')
-      p.clearfix
-        label Last name
-        input(name='user[surname]')
-      p.actions
-        input(type='submit', value='Save', class='btn primary')
+block content
+  section.container
+    h2 Form example
 
-
+    form(method='post', action='/')
+      fieldset
+        legend Add a user
+        p.clearfix
+          label First name
+          input(name='user[first_name]')
+        p.clearfix
+          label Last name
+          input(name='user[surname]')
+        p.actions
+          input(type='submit', value='Save', class='btn primary')
