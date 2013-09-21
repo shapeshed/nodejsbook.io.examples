@@ -10,4 +10,4 @@ Try running the program with
 
     node foo.js
 
-Examine package.json to understand how to delcare dependencies
+Examine package.json to understand how to declare dependencies
