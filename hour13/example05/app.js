@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 io.sockets.on('connection', function (socket) {
 
   socket.on('nickname', function (data, fn) {
-    if (nicknames.indexOf(data) !== -1) { 
+    if (nicknames.indexOf(data) !== -1) {
       fn(true);
     } else {
       fn(false);
@@ -28,7 +28,7 @@ io.sockets.on('connection', function (socket) {
     }
   });
   socket.on('disconnect', function () {
-    if (!socket.nickname) return;
+    if (!socket.nickname) { return; }
     nicknames.splice(nicknames.indexOf(socket.nickname), 1);
     console.log('Nicknames are ' + nicknames);
   });
