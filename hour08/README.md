@@ -14,3 +14,4 @@ Chapter 8 shows how to persist data in Node.js applications.
 9. Adding Flash messages
 10. Adding validation
 
+Note that since writing the book Flash messages were removed from Express. These can be achieved through a number of third-party modules but have been removed from the examples.

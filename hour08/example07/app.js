@@ -1,13 +1,16 @@
-
 /**
  * Module dependencies.
  */
 
 var express = require('express'),
-    routes = require('./routes'),
-    mongoose = require('mongoose');
+  routes = require('./routes'),
+  http = require('http'),
+  path = require('path'),
+  mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/todo_development')
+var app = express();
+
+mongoose.connect('mongodb://localhost/todo_development');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
@@ -17,34 +20,27 @@ var Task = new Schema({
 
 var Task = mongoose.model('Task', Task);
 
-var app = module.exports = express.createServer();
+// all environments
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuration
-
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
-
-// Routes
+// development only
+if ('development' === app.get('env')) {
+  app.use(express.errorHandler());
+}
 
 app.get('/', routes.index);
 
 app.get('/tasks', function(req, res){
   Task.find({}, function (err, docs) {
-    res.render('tasks/index', { 
+    res.render('tasks/index', {
       title: 'Todos index view',
       docs: docs
     });
@@ -52,7 +48,7 @@ app.get('/tasks', function(req, res){
 });
 
 app.get('/tasks/new', function(req, res){
-  res.render('tasks/new.jade', { 
+  res.render('tasks/new.jade', {
     title: 'New Task'
   });
 });
@@ -69,5 +65,6 @@ app.post('/tasks', function(req, res){
   });
 });
 
-app.listen(3000);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});

@@ -1,12 +1,13 @@
-h1 New task view
+extends ../layout
 
-form(method='post', action='/tasks')
-  fieldset
-    legend Add a task
-      div.clearfix
+block content
+  h1 New task view
+
+  form(role='form', method='post', action='/tasks')
+    fieldset
+      legend Add a task
+      div.form-group
         label Task
-        div.input
-          input(name='task[task]', class='xlarge')
-      div.actions
-        input(type='submit', value='Save', class='btn primary')
-        button(type='reset', class='btn') Cancel
+        input(name='task[task]', class='form-control')
+      button.btn.btn-primary(type='submit') Submit
+      button.btn.btn-default(type='reset') Clear
