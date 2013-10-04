@@ -2,10 +2,10 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http')
-  , path = require('path');
+var express = require('express'),
+  routes = require('./routes'),
+  http = require('http'),
+  path = require('path');
 
 var app = express();
 
@@ -21,18 +21,18 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
 app.get('/', function(req, res){
-  var user = { 
+  var user = {
     first_name: 'Barak',
     surname: 'Obama',
     address: 'The White House',
     facebook_friends: '10000000000000'
   };
-  res.render('index', { title: 'User', user: user })
+  res.render('index', { title: 'User', user: user });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
