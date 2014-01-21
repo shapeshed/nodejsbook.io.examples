@@ -1,8 +1,12 @@
-mixin users(users)
-  ul
-    each user in users
-      li= user
-- users = ['Tanya', 'Jose', 'Kim']
-mixin users(users)
-- more_users = ['Mark', 'Elena', 'Dave', 'Pete', 'Keiron']
-mixin users(more_users)
+
+extends layout
+
+block content
+  mixin users(users)
+    ul
+      each user in users
+        li= user
+  - users = ['Tanya', 'Jose', 'Kim']
+  mixin users(users)
+  - more_users = ['Mark', 'Elena', 'Dave', 'Pete', 'Keiron']
+  mixin users(more_users)
