@@ -1,11 +1,11 @@
 {
-    "name": "socket.io-chat"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.4"
-    , "socket.io": "0.8.7"
-    , "stylus": "0.22.5"
-    , "jade": ">= 0.0.1"
+  "name": "socket.io-express-example",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.3.4",
+    "stylus": "0.22.5",
+    "jade": "1.1.5",
+    "socket.io": "0.9.16"
   }
 }

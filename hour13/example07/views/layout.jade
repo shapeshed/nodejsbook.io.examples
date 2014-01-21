@@ -1,11 +1,11 @@
-!!!
+doctype html
 html
   head
     title Node.js Chat Server
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='/socket.io/socket.io.js')
-    script
+    script.
       var socket = io.connect();
       jQuery(function ($) { 
         var users = $('.users');
@@ -105,7 +105,7 @@ html
 
 
 
-body!= body
+body
   section.login
     h1 Node.js Chat Server
     form

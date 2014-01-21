@@ -1,15 +1,15 @@
 var express = require('express'),
-    routes = require('./routes');
+  app = express(),
+  routes = require('./routes'),
+  server = require('http').createServer(app),
+  io = require('socket.io').listen(server),
+  nicknames = [];
 
-var app = module.exports = express.createServer(),
-    io = require('socket.io').listen(app),
-    nicknames = [];
-
-app.listen(3000);
+app.set('port', process.env.PORT || 3000);
 
 io.sockets.on('connection', function (socket) {
   socket.on('nickname', function (data, callback) {
-    if (nicknames.indexOf(data) != -1) { 
+    if (nicknames.indexOf(data) !== -1) {
       callback(false);
     } else {
       callback(true);
@@ -19,26 +19,26 @@ io.sockets.on('connection', function (socket) {
       io.sockets.emit('nicknames', nicknames);
       socket.broadcast.emit('announcement', {
         nick: 'system',
-        message: data + ' connected' 
+        message: data + ' connected'
       });
     }
   });
   socket.on('user message', function (data) {
-    io.sockets.emit('user message', { 
-      nick: socket.nickname, 
-      message: data 
+    io.sockets.emit('user message', {
+      nick: socket.nickname,
+      message: data
     });
   });
 
   socket.on('disconnect', function () {
-    if (!socket.nickname) return;
+    if (!socket.nickname) { return; }
     if (nicknames.indexOf(socket.nickname) > -1) {
       nicknames.splice(nicknames.indexOf(socket.nickname), 1);
     }
     console.log('Nicknames are ' + nicknames);
     socket.broadcast.emit('announcement', {
       nick: 'system',
-      message: socket.nickname + ' disconnected' 
+      message: socket.nickname + ' disconnected'
     });
     io.sockets.emit('nicknames', nicknames);
   });
@@ -57,15 +57,17 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
-  app.use(express.errorHandler()); 
+  app.use(express.errorHandler());
 });
 
 // Routes
 
 app.get('/', routes.index);
 
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+server.listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});

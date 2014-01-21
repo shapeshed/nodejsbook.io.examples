@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "express": "3.3.4",
-    "jade": "*",
     "socket.io":"0.9.16"
   }
 }
