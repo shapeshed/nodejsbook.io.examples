@@ -5,6 +5,14 @@ block content
   p
     a(href='/tasks/new', class='btn btn-primary') Add a Task
 
+  p= messages
+  each message in messages
+    div.alert.alert-success
+     p= message
+
+  - if (messages.length)
+      div.alert.alert-success
+        p cocky
   - if (docs.length)
     table.table
       tr

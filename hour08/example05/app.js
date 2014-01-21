@@ -11,6 +11,7 @@ var express = require('express'),
 var app = express();
 
 mongoose.connect('mongodb://localhost/todo_development');
+
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
