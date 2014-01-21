@@ -2,7 +2,7 @@
   "name": "mocha_example",
   "version": "0.0.0",
   "devDependencies": {
-    "mocha": "1.12.0"
+    "mocha": "1.17.0"
   },
   "scripts" : { 
     "test" : "./node_modules/.bin/mocha test.js"

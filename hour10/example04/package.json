@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
-    "nodeunit": "0.8.1"
+    "nodeunit": "0.8.2"
   }
 }
 
