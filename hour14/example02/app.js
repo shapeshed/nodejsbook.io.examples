@@ -1,7 +1,4 @@
-var app = require('express').createServer(),
-    twitter = require('ntwitter');
-
-app.listen(3000);
+var twitter = require('ntwitter');
 
 var twit = new twitter({
   consumer_key: 'YOUR_CONSUMER_KEY',

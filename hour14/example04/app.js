@@ -1,11 +1,14 @@
-var app = require('express').createServer(),
-    twitter = require('ntwitter'),
-    io = require('socket.io').listen(app),
-    love = 0,
-    hate = 0,
-    total = 0;
+var express = require('express'),
+  twitter = require('ntwitter'),
+  app = express(),
+  server = require('http').createServer(app),
+  io = require('socket.io').listen(server),
+  love = 0,
+  hate = 0,
+  total = 0;
 
-app.listen(3000);
+
+app.set('port', process.env.PORT || 3000);
 
 var twit = new twitter({
   consumer_key: 'YOUR_CONSUMER_KEY',
@@ -19,12 +22,12 @@ twit.stream('statuses/filter', { track: ['love', 'hate'] }, function(stream) {
   stream.on('data', function (data) {
     var text = data.text.toLowerCase();
     if (text.indexOf('love') !== -1) {
-      love++
-      total++
+      love++;
+      total++;
     }
     if (text.indexOf('hate') !== -1) {
-      hate++
-      total++
+      hate++;
+      total++;
     }
     io.sockets.volatile.emit('tweet', { 
       user: data.user.screen_name, 
@@ -39,3 +42,6 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+server.listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
