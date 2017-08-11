@@ -1,5 +1,11 @@
-#Errata
 
+#Errata
+## 8/11/2017 - Hour 3
+Page 36 The Code for Try it yourself for hour03/example02 code, line 12 has an error that stops from bringing an alter when you click on the button the click event is not triggered.
+It reads 
+$('#click-trigger') .click(function(){
+but it should read
+$("#click-trigger") .click(function(){
 ## 05/10/13 - Hour 8
 The book contains examples from Express 2. These will work correctly if used with Express 2 but will fail with Express 3. The code examples on GitHub have been updated to use Express 3. The examples in the book use a Twitter bootstrap file that is no longer available. This has also been updated in the code examples on GitHub.
 ## 05/10/13 - Hour 7
